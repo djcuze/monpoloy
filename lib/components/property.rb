@@ -10,7 +10,12 @@ class Property
   end
 
   def add_improvement(improvement)
-    @improvements << improvement
+    begin
+      raise IncorrectSetError if @set == 'railroad' || @set == 'rail'
+      @improvements << improvement
+    rescue IncorrectSetError => error
+      # TODO: Catch this error and make it matter
+    end
   end
 
   def calculate_rent

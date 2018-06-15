@@ -28,7 +28,5 @@ RSpec.describe Improvement do
       count = property.improvements.count
       expect(count).not_to eq(6)
     end
-
-
   end
 end

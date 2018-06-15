@@ -4,7 +4,7 @@ class PropertyImprovement
   def initialize(property)
     @property = property
     @improvement = self.determine_improvement_type
-    self.process ? true : false
+    self.process
   end
 
   def process
@@ -12,7 +12,7 @@ class PropertyImprovement
       raise TooManyImprovementsError if @property.improvements.count > 4
       @property.add_improvement(@improvement)
     rescue TooManyImprovementsError => error
-      false
+      # TODO: catch the error and make it matter
     end
   end
 

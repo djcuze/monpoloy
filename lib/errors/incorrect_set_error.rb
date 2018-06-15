@@ -1,0 +1,2 @@
+class IncorrectSetError < StandardError;
+end
