@@ -9,18 +9,23 @@ class Property
     self.calculate_rent
   end
 
+  def is_a_business?
+    business_types = %w(railroad utility)
+    business_types.include?(@set)
+  end
+
   def add_improvement(improvement)
     begin
-      raise IncorrectSetError if @set == 'railroad' || @set == 'rail'
+      raise IncorrectSetError if is_a_business?
       @improvements << improvement
     rescue IncorrectSetError => error
-      # TODO: Catch this error and make it matter
+      # TODO: catch the error and make it matter
     end
   end
 
   def calculate_rent
     scheme = RentalScheme.new(self)
-    @rent = scheme.calculate
+    @rent = scheme.residential
   end
 
   def rent

@@ -5,8 +5,8 @@ RSpec.describe RentalScheme do
 
   it 'has a property value and a number of dwellings' do
     scheme = RentalScheme.new(property)
-    expect(scheme.property_value).to eq(60)
-    expect(scheme.calculate).to eq(5)
+    expect(scheme.property.value).to eq(60)
+    expect(scheme.residential).to eq(5)
   end
 
 end
