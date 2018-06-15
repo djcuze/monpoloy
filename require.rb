@@ -1,0 +1,6 @@
+require './lib/components/player'
+require './lib/components/property'
+require './lib/components/improvement'
+require './lib/components/house_and_hotel'
+require './lib/actions/property_improvement'
+require './lib/errors/too_many_improvements'
