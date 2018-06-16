@@ -11,7 +11,7 @@ class PropertySale
   end
 
   def approved?
-    true if property.owner == buyer
+    property.owner == buyer
   end
 
   def transfer_ownership

@@ -30,7 +30,7 @@ class Property
   end
 
   def is_mortgaged?
-    true if @status == 'mortgaged'
+    @status == 'mortgaged'
   end
 
 end

@@ -22,6 +22,6 @@ class MonopolyCheck
     player.owned_properties.each do |property|
       @count += 1 if property.set == @set
     end
-    @count == @property_counts[@set] ? true : false
+    @count == @property_counts[@set]
   end
 end
