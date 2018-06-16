@@ -1,6 +1,6 @@
 class RentalScheme
   attr_accessor :property
-  attr_reader :exception
+  attr_reader :exception, :amount
 
   def initialize(property)
     @property = property
@@ -9,10 +9,10 @@ class RentalScheme
 
   def commercial
     scheme = {
-        :railroad => 25,
-        :utility => 30
+        "railroad" => 25,
+        'utility' => 30
     }
-    scheme[property.set]
+    @amount = scheme[@property.set]
   end
 
   def residential
@@ -21,8 +21,10 @@ class RentalScheme
         0 => 1,
         1 => 5,
         2 => 15,
-        3 => 45
+        3 => 45,
+        4 => 70,
+        5 => 145
     }
-    @property.value / 12 * adjustment[num_of_dwellings]
+    @amount = @property.value / 12 * adjustment[num_of_dwellings]
   end
 end

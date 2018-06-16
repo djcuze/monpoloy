@@ -6,7 +6,7 @@ class Property
     @value = value
     @set = set
     @improvements = []
-    self.calculate_rent
+    calculate_rent
   end
 
   def is_a_business?
@@ -15,17 +15,12 @@ class Property
   end
 
   def add_improvement(improvement)
-    begin
-      raise IncorrectSetError if is_a_business?
-      @improvements << improvement
-    rescue IncorrectSetError => error
-      # TODO: catch the error and make it matter
-    end
+    @improvements << improvement unless is_a_business?
   end
 
   def calculate_rent
     scheme = RentalScheme.new(self)
-    @rent = scheme.residential
+    @rent = scheme.amount
   end
 
   def rent

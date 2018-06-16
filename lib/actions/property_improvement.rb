@@ -1,7 +1,7 @@
 class PropertyImprovement
   attr_reader :improvement, :property
 
-  def initialize(property)
+  def process_for(property)
     @property = property
     @improvement = self.determine_improvement_type
     self.process
@@ -11,8 +11,9 @@ class PropertyImprovement
     begin
       raise TooManyImprovementsError if @property.improvements.count > 4
       @property.add_improvement(@improvement)
+      @property.calculate_rent
     rescue TooManyImprovementsError => error
-      # TODO: catch the error and make it matter
+      return 'Error: Property is at improvement limit'
     end
   end
 
