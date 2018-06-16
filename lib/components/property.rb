@@ -1,11 +1,13 @@
 class Property
-  attr_accessor :improvements, :set, :title, :value
+  attr_accessor :improvements, :set, :title, :value, :status, :owner
 
   def initialize(title, value, set)
     @title = title
     @value = value
     @set = set
     @improvements = []
+    @status = 'purchasable'
+    @owner = nil
     calculate_rent
   end
 
@@ -25,6 +27,10 @@ class Property
 
   def rent
     @rent
+  end
+
+  def is_mortgaged?
+    true if @status == 'mortgaged'
   end
 
 end
