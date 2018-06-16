@@ -18,6 +18,11 @@ class Player
     purchase(property) if sale.approved?
   end
 
+  def owns_a_monopoly?(set)
+    check = MonopolyCheck.new(set)
+    check.check_sets_for_properties(self)
+  end
+
 
   def purchase(item)
     @funds -= item.value

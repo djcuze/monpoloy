@@ -7,11 +7,11 @@ class PropertySale
 
   def process_for(property)
     @property = property
-    transfer_ownership if approved?
+    transfer_ownership if buyer.funds >= property.value
   end
 
   def approved?
-    true if buyer.funds >= property.value
+    true if property.owner == buyer
   end
 
   def transfer_ownership

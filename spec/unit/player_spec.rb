@@ -26,4 +26,10 @@ RSpec.describe Player do
     expect(player.owned_properties.count).to eq(0)
   end
 
+  it 'can purchase a property' do
+    player.buy_a_property(property)
+    expect(property.owner).to eq(player)
+    expect(player.funds).to eq(440)
+  end
+
 end
