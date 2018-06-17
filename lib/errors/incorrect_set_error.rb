@@ -1,2 +1,2 @@
-class IncorrectSetError < StandardError;
+class IncorrectSetError < StandardError
 end

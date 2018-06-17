@@ -1,5 +1,7 @@
+# Class comment
 class Property
   attr_accessor :improvements, :set, :title, :value, :status, :owner
+  attr_reader :rent
 
   def initialize(title, value, set)
     @title = title
@@ -11,13 +13,13 @@ class Property
     calculate_rent
   end
 
-  def is_a_business?
-    business_types = %w(railroad utility)
+  def a_business?
+    business_types = %w[railroad utility]
     business_types.include?(@set)
   end
 
   def add_improvement(improvement)
-    @improvements << improvement unless is_a_business?
+    @improvements << improvement unless a_business?
   end
 
   def calculate_rent
@@ -25,12 +27,7 @@ class Property
     @rent = scheme.amount
   end
 
-  def rent
-    @rent
-  end
-
-  def is_mortgaged?
+  def mortgaged?
     @status == 'mortgaged'
   end
-
 end

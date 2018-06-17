@@ -1,3 +1,4 @@
+# Class comment
 class Set
   attr_reader :name
 

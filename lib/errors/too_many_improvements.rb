@@ -1,2 +1,2 @@
-class TooManyImprovementsError < StandardError;
+class TooManyImprovementsError < StandardError
 end

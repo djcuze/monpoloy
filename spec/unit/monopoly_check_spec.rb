@@ -1,12 +1,12 @@
 require './require'
 
 RSpec.describe MonopolyCheck do
-  let(:set) {Set.new('brown')}
-  let(:property) {Property.new('Whitechapel Road', 60, 'brown')}
-  let(:property_2) {Property.new('Old Kent Road', 60, 'brown')}
-  let(:player) {Player.new}
-  let(:check) {MonopolyCheck.new(property.set)}
-  let(:owned_properties) {player.owned_properties}
+  let(:set) { Set.new('brown') }
+  let(:property) { Property.new('Whitechapel Road', 60, 'brown') }
+  let(:property_2) { Property.new('Old Kent Road', 60, 'brown') }
+  let(:player) { Player.new }
+  let(:check) { MonopolyCheck.new(property.set) }
+  let(:owned_properties) { player.owned_properties }
 
   it 'expects to be false' do
     result = check.count_properties(owned_properties)
@@ -25,5 +25,4 @@ RSpec.describe MonopolyCheck do
     result = check.count_properties(owned_properties)
     expect(result).to be false
   end
-
 end

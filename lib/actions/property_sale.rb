@@ -1,3 +1,4 @@
+# Class comment
 class PropertySale
   attr_reader :property, :buyer
 
@@ -18,5 +19,4 @@ class PropertySale
     buyer.owned_properties << property
     property.owner = buyer
   end
-
 end

@@ -1,5 +1,5 @@
+# Class comment
 class Improvement
-
   def initialize(value)
     @value = value
   end

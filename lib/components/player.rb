@@ -1,3 +1,4 @@
+# Class Comment
 class Player
   attr_accessor :funds, :name, :owned_properties
 
@@ -20,9 +21,8 @@ class Player
 
   def owns_a_monopoly?(set)
     check = MonopolyCheck.new(set)
-    check.check_sets_for_properties(self.owned_properties)
+    check.check_sets_for_properties(owned_properties)
   end
-
 
   def purchase(item)
     @funds -= item.value
@@ -32,5 +32,4 @@ class Player
     @funds -= amount
     player.funds += amount
   end
-
 end
