@@ -20,7 +20,7 @@ class Player
 
   def owns_a_monopoly?(set)
     check = MonopolyCheck.new(set)
-    check.check_sets_for_properties(self)
+    check.check_sets_for_properties(self.owned_properties)
   end
 
 

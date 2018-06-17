@@ -1,10 +1,9 @@
 class PropertyImprovement
-  attr_reader :improvement, :property
 
   def process_for(property)
     @property = property
-    @improvement = self.determine_improvement_type
-    self.process
+    @improvement = determine_improvement_type
+    process
   end
 
   def process

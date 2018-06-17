@@ -1,27 +1,23 @@
 class MonopolyCheck
-  attr_reader :set, :property_counts
 
   def initialize(set)
     @set = set
-    @property_counts = {
-        'brown' => 2,
-        'dark_blue' => 2,
-        'utility' => 2,
-        'light_blue' => 3,
-        'pink' => 3,
-        'orange' => 3,
-        'red' => 3,
-        'yellow' => 3,
-        'green' => 3,
-        'railroad' => 4
-    }
+    @required_count = no_of_properties_in_the_set
   end
 
-  def check_sets_for_properties(player)
-    @count = 0
-    player.owned_properties.each do |property|
-      @count += 1 if property.set == @set
+  def count_properties(owned_properties)
+    properties = owned_properties.select {|property| property.set == @set}
+    properties.count == @required_count
+  end
+
+  def no_of_properties_in_the_set
+    case @set
+      when 'brown' || 'dark_blue' || 'utility' then
+        2
+      when 'railroad' then
+        4
+      else
+        3
     end
-    @count == @property_counts[@set]
   end
 end
